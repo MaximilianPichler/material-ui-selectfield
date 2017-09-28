@@ -1,15 +1,11 @@
-import React, {Component} from 'react'
 import {render} from 'react-dom'
+import React from 'react'
+import App from './App.js'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-import Example from '../../src'
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>material-ui-selectfield Demo</h1>
-      <Example/>
-    </div>
-  }
-}
-
-render(<Demo/>, document.querySelector('#demo'))
+render(
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
+  , document.querySelector('#demo'))
