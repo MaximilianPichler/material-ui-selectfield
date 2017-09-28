@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
-
-import {SelectField} from '../../src'
+import { SelectField } from '../../src'
 
 class App extends Component {
-
 
   render() {
     const {
@@ -35,7 +33,7 @@ class App extends Component {
           <div value='C'>Option C</div>
 
         </SelectField>
-        
+
 
 
       </div>
