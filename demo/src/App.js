@@ -5,6 +5,16 @@ import SelectField from '../../src'
 
 class App extends Component {
 
+  getElemets (count) {
+    let elements = []
+    for (let i = 0; i < count; i++) {
+      elements.push(
+        <div value={i}>Option {i}</div>
+      )
+    }
+    return elements
+  }
+
   render() {
     const {
       setFilterIsOpen,
@@ -28,9 +38,7 @@ class App extends Component {
           hintText='Single value'
           style={{ width: 250, margin: 100 }}>
 
-          <div value='A'>Option A</div>
-          <div value='B'>Option B</div>
-          <div value='C'>Option C</div>
+          {this.getElemets(20)}
 
         </SelectField>
 

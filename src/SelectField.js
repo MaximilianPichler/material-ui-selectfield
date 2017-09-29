@@ -1,7 +1,6 @@
 // import 'babel-polyfill'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-//import { findDOMNode } from 'react-dom'
 import InfiniteScroller from 'react-infinite'
 import Popover from 'material-ui/Popover/Popover'
 import TextField from 'material-ui/TextField/TextField'
@@ -72,19 +71,17 @@ class SelectField extends Component {
 
   focusTextField () {
     if (this.state.showAutocomplete) {
+      console.log(this.searchTextField);
       if (this.searchTextField != null) {
         this.searchTextField.focus()
       }
-      //const input = findDOMNode(this.searchTextField).getElementsByTagName('input')[0]
-      //input.focus()
     } else this.focusMenuItem()
   }
 
   focusMenuItem (index) {
     const targetMenuItem = this.menuItems.find(item => {
-      return !!item && (index ? item.props.tabIndex === index : true)
+      return (item != null) && (index ? item.props.tabIndex === index : true)
     })
-    console.log(this.menuItems);
 
     if (targetMenuItem) targetMenuItem.applyFocusState('keyboard-focused')
     // targetMenuItem.applyFocusState('keyboard-focused')
@@ -94,18 +91,14 @@ class SelectField extends Component {
     this.setState({ searchText: '' }, callback)
   }
 
-  /**
-  * Main Component Wrapper methods
-  */
+
   // toggle instead of close ? (in case user changes  targetOrigin/anchorOrigin)
   handleClick = (event) => !this.props.disabled && this.openMenu()
 
   handleKeyDown = (event) =>
   !this.props.disabled && /ArrowDown|Enter/.test(event.key) && this.openMenu()
 
-  /**
-  * TextField autocomplete methods
-  */
+
   handleTextFieldAutocompletionFiltering = (event, searchText) => {
     this.props.onAutoCompleteTyping(searchText)
     this.setState({ searchText }, () => this.focusTextField())
@@ -126,9 +119,7 @@ class SelectField extends Component {
     }
   }
 
-  /**
-  * Menu methods
-  */
+
   handleMenuSelection = (selectedItem) => (event) => {
     event.preventDefault()
     const { selectedItems } = this.state
@@ -146,11 +137,8 @@ class SelectField extends Component {
   }
 
   // TODO: add Shift+Tab
-  /**
-  * this.menuItems can contain uncontinuous React elements, because of filtering
-  */
   handleMenuKeyDown = ({ key, target: {tabIndex} }) => {
-    const cleanMenuItems = this.menuItems.filter(item => !!item)
+    const cleanMenuItems = this.menuItems.filter(item => item != null)
     const firstTabIndex = cleanMenuItems[0].props.tabIndex
     const lastTabIndex = cleanMenuItems[ cleanMenuItems.length - 1 ].props.tabIndex
     const currentElementIndex = cleanMenuItems.findIndex(item => item.props.tabIndex === tabIndex)
