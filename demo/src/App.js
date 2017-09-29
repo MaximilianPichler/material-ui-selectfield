@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
-import { SelectField } from '../../src'
+import SelectField from '../../src'
 
 class App extends Component {
 
