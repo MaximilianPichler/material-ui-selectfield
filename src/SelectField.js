@@ -71,7 +71,7 @@ class SelectField extends Component {
 
   focusTextField () {
     if (this.state.showAutocomplete) {
-      console.log(this.searchTextField);
+
       if (this.searchTextField != null) {
         this.searchTextField.focus()
       }
@@ -332,7 +332,12 @@ class SelectField extends Component {
 
           {this.state.showAutocomplete &&
             <TextField
-              ref={ref => (this.searchTextField = ref)}
+              ref={ref => {
+                this.searchTextField=ref
+                if(ref){
+                  ref.focus()
+                }
+              }}
               value={this.state.searchText}
               hintText={hintTextAutocomplete}
               onChange={this.handleTextFieldAutocompletionFiltering}

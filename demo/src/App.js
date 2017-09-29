@@ -38,7 +38,7 @@ class App extends Component {
           hintText='Single value'
           style={{ width: 250, margin: 100 }}>
 
-          {this.getElemets(20)}
+          {this.getElemets(1000)}
 
         </SelectField>
 
