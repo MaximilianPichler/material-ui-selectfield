@@ -31,7 +31,6 @@ class App extends Component {
         />
 
         <SelectField
-          anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
           // open={true}
           // errorText='HELP'
           name='state11'

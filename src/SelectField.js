@@ -330,7 +330,8 @@ class SelectField extends Component {
           onRequestClose={this.closeMenu}
           style={{ height: popoverHeight }}>
 
-          {this.state.showAutocomplete &&
+          {
+            this.state.showAutocomplete &&
             <TextField
               ref={ref => {
                 this.searchTextField=ref
@@ -351,9 +352,8 @@ class SelectField extends Component {
             ref={ref => (this.menu = ref)}
             onKeyDown={this.handleMenuKeyDown}
             style={{ width: menuWidth, ...menuStyle }}>
-
             {
-              menuItems.length &&
+              (menuItems.length > 0) &&
               <InfiniteScroller
                 elementHeight={elementHeight}
                 containerHeight={containerHeight}
@@ -362,10 +362,9 @@ class SelectField extends Component {
               </InfiniteScroller>
             }
             {
-              !menuItems.length &&
+              (menuItems.length === 0) &&
               <ListItem primaryText={noMatchFound} style={{ cursor: 'default', padding: '10px 16px' }} disabled />
             }
-
           </div>
           {multiple &&
             <footer style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -496,7 +495,7 @@ SelectField.propTypes = {
 }
 
 SelectField.defaultProps = {
-  anchorOrigin: { vertical: 'top', horizontal: 'left' },
+  anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
   checkPosition: '',
   checkedIcon: <CheckedIcon style={{ top: 'calc(50% - 12px)' }} />,
   unCheckedIcon: <UnCheckedIcon style={{ top: 'calc(50% - 12px)' }} />,
@@ -513,7 +512,7 @@ SelectField.defaultProps = {
   autocompleteFilter: (searchText, text) => {
     if (!text || (typeof text !== 'string' && typeof text !== 'number')) return false
     if (typeof searchText !== 'string' && typeof searchText !== 'number') return false
-    return (text + '').toLowerCase().includes(searchText.toLowerCase())
+    return (String(text)).toLowerCase().includes(String(searchText).toLowerCase())
   },
   value: null,
   onChange: () => {},
