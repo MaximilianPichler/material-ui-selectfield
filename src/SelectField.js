@@ -72,7 +72,9 @@ class SelectField extends Component {
 
   focusTextField () {
     if (this.state.showAutocomplete) {
-      this.searchTextField.focus()
+      if (this.searchTextField != null) {
+        this.searchTextField.focus()
+      }
       //const input = findDOMNode(this.searchTextField).getElementsByTagName('input')[0]
       //input.focus()
     } else this.focusMenuItem()
