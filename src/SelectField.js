@@ -1,7 +1,7 @@
 // import 'babel-polyfill'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { findDOMNode } from 'react-dom'
+//import { findDOMNode } from 'react-dom'
 import InfiniteScroller from 'react-infinite'
 import Popover from 'material-ui/Popover/Popover'
 import TextField from 'material-ui/TextField/TextField'
@@ -72,8 +72,9 @@ class SelectField extends Component {
 
   focusTextField () {
     if (this.state.showAutocomplete) {
-      const input = findDOMNode(this.searchTextField).getElementsByTagName('input')[0]
-      input.focus()
+      this.searchTextField.focus()
+      //const input = findDOMNode(this.searchTextField).getElementsByTagName('input')[0]
+      //input.focus()
     } else this.focusMenuItem()
   }
 
