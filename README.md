@@ -2,8 +2,6 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
-
 
 [build-badge]: https://img.shields.io/travis/MaximilianPichler/material-ui-selectfield/master.png?style=flat-square
 [build]: https://travis-ci.org/MaximilianPichler/material-ui-selectfield.svg?branch=master
@@ -13,7 +11,7 @@
 
 
 ## Demo
-[demo]: (https://maximilianpichler.github.io/material-ui-selectfield/ "Demo")
+https://maximilianpichler.github.io/material-ui-selectfield/
 
 
 ## Installation
