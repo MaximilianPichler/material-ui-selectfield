@@ -13,7 +13,7 @@
 
 
 ## Demo
-[demo]: https://maximilianpichler.github.io/material-ui-selectfield/
+[demo]: (https://maximilianpichler.github.io/material-ui-selectfield/ "Demo")
 
 
 ## Installation
