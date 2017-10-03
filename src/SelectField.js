@@ -9,8 +9,6 @@ import CheckedIcon from 'material-ui/svg-icons/navigation/check'
 import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank'
 import SelectionsPresenter from './SelectionPresenter'
 import { areEqual, getChildrenLength, checkFormat, objectShape } from './utils'
-// import List from 'react-virtualized/dist/commonjs/List'
-
 
 class SelectField extends Component {
   constructor (props, context) {
@@ -366,7 +364,8 @@ class SelectField extends Component {
               <ListItem primaryText={noMatchFound} style={{ cursor: 'default', padding: '10px 16px' }} disabled />
             }
           </div>
-          {multiple &&
+          {
+            multiple &&
             <footer style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <div onClick={this.closeMenu} style={menuFooterStyle}>
                 {menuCloseButton}

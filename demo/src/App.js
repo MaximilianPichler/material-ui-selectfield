@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
+import Paper from 'material-ui/Paper'
 import SelectField from '../../src'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 class App extends Component {
 
   getElemets (count) {
     let elements = []
-    for (let i = 0; i < count; i++) {
+    for (let i = 1; i <= count; i++) {
       elements.push(
-        <div value={i}>Option {i}</div>
+        <div value={`Option ${i}`}>Option {i}</div>
       )
     }
     return elements
@@ -30,16 +32,89 @@ class App extends Component {
           title={`material-ui-selectfield`}
         />
 
-        <SelectField
-          // open={true}
-          // errorText='HELP'
-          name='state11'
-          hintText='Single value'
-          style={{ width: 250, margin: 100 }}>
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Autocomplete</p>
+            <SelectField
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(1000)
+              }
+            </SelectField>
+          </Paper>
 
-          {this.getElemets(1000)}
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Multiple selections</p>
+            <SelectField
+              multiple
+              checkPosition='left'
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(4)
+              }
+            </SelectField>
+          </Paper>
 
-        </SelectField>
+
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Multiple selection with close button</p>
+            <SelectField
+              multiple
+              checkPosition='left'
+              name='state11'
+              hintText='Single value'
+              menuCloseButton={<FlatButton label='close' />}
+              style={{ width: 200 }}>
+              {
+                this.getElemets(4)
+              }
+            </SelectField>
+          </Paper>
+
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Always open</p>
+            <SelectField
+              open
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(3)
+              }
+            </SelectField>
+          </Paper>
+
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Error-text</p>
+            <SelectField
+              errorText='Error!'
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(3)
+              }
+            </SelectField>
+          </Paper>
+
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Disaled</p>
+            <SelectField
+              disabled
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(3)
+              }
+            </SelectField>
+          </Paper>
+
+        </div>
 
 
 
