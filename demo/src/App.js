@@ -51,7 +51,7 @@ class App extends Component {
               multiple
               checkPosition='left'
               name='state11'
-              hintText='Single value'
+              hintText='Multiple values'
               style={{ width: 200 }}>
               {
                 this.getElemets(4)
@@ -66,7 +66,7 @@ class App extends Component {
               multiple
               checkPosition='left'
               name='state11'
-              hintText='Single value'
+              hintText='Multiple values'
               menuCloseButton={<FlatButton label='close' />}
               style={{ width: 200 }}>
               {
