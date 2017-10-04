@@ -4,6 +4,8 @@ import FlatButton from 'material-ui/FlatButton'
 import Paper from 'material-ui/Paper'
 import SelectField from '../../src'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import FontIcon from 'material-ui/FontIcon'
+
 
 class App extends Component {
 
@@ -97,6 +99,22 @@ class App extends Component {
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
+              }
+            </SelectField>
+          </Paper>
+
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 500 }}>
+            <p>Custom styling</p>
+            <SelectField
+              menuStyle={{ backgroundColor: 'lightblue' }}
+              hoverColor={'blue'}
+              underlineStyle={{ borderColor: 'green' }}
+              underlineFocusStyle={{ borderColor: 'yellow' }}
+              name='state11'
+              hintText='Single value'
+              style={{ width: 200 }}>
+              {
+                this.getElemets(4)
               }
             </SelectField>
           </Paper>

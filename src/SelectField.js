@@ -54,7 +54,7 @@ class SelectField extends Component {
 
   closeMenu = (reason) => {
     const { onChange, name, open } = this.props
-
+    console.log(close);
     onChange(this.state.selectedItems, name)
     this.setState({ isFocused: false, searchText: '' })
 
@@ -64,7 +64,14 @@ class SelectField extends Component {
   }
 
   openMenu () {
-    if (this.state.itemsLength) this.setState({ isOpen: true }, () => this.focusTextField())
+    const { onMenuOpen } = this.props
+
+    if (this.state.isOpen === false) {
+      onMenuOpen()
+    }
+    if (this.state.itemsLength) {
+      this.setState({ isOpen: true }, () => this.focusTextField())
+    }
   }
 
   focusTextField () {
@@ -490,6 +497,7 @@ SelectField.propTypes = {
   multiple: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
+  onMenuOpen: PropTypes.func,
   onAutoCompleteTyping: PropTypes.func
 }
 
@@ -515,6 +523,7 @@ SelectField.defaultProps = {
   },
   value: null,
   onChange: () => {},
+  onMenuOpen: () => {},
   onAutoCompleteTyping: () => {},
   children: []
 }
