@@ -54,7 +54,7 @@ class SelectField extends Component {
 
   closeMenu = (reason) => {
     const { onChange, name, open } = this.props
-    console.log(close);
+
     onChange(this.state.selectedItems, name)
     this.setState({ isFocused: false, searchText: '' })
 
