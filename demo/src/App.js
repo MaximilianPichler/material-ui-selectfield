@@ -18,7 +18,7 @@ class App extends Component {
     return elements
   }
 
-  getCountries (count) {
+  getIconElements (count) {
     let elements = []
 
     elements.push(
@@ -172,7 +172,7 @@ class App extends Component {
               elementHeight={46}
               style={{ width: 200 }}>
               {
-                this.getCountries()
+                this.getIconElements()
               }
             </SelectField>
           </Paper>
