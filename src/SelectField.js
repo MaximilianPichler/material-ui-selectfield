@@ -221,6 +221,7 @@ class SelectField extends Component {
     const menuItemBuilder = (nodes, child, index) => {
       const { selectedItems } = this.state
       const { value: childValue, label } = child.props
+
       if (!autocompleteFilter(this.state.searchText, label || childValue)) return nodes
       const isSelected = Array.isArray(selectedItems)
       ? selectedItems.some(obj => areEqual(obj.value, childValue))
@@ -255,7 +256,6 @@ class SelectField extends Component {
     }
 
     const fixedChildren = Array.isArray(children) ? children : [children]
-
     const menuItems = !disabled && fixedChildren.length && this.state.isOpen &&
     fixedChildren.reduce((nodes, child, index) => {
       if (child.type !== 'optgroup') return menuItemBuilder(nodes, child, index)
@@ -469,9 +469,9 @@ SelectField.propTypes = {
   nb2show: PropTypes.number,
   value: (props, propName, componentName, location, propFullName) => {
     const { multiple, value } = props
-    // console.debug(`value ${props.name}`, value)
+
     if (multiple) {
-      if (!Array.isArray(value)) {
+      if (value && !Array.isArray(value)) {
         return new Error(`
           When using 'multiple' mode, 'value' of '${componentName} ${props.name}' must be an array.
           Validation failed.`
@@ -512,7 +512,7 @@ SelectField.defaultProps = {
   disabled: false,
   nb2show: 5,
   hintText: 'Click me',
-  hintTextAutocomplete: 'Type something',
+  hintTextAutocomplete: 'Search',
   noMatchFound: 'No match found',
   showAutocompleteThreshold: 10,
   elementHeight: 36,

@@ -23,18 +23,14 @@
   "peerDependencies": {
     "react": "15.x || 16.x",
     "material-ui": "^0.19.2",
-    "react-infinite": "^0.12.1",
-    "react-virtualized": "^9.10.1",
-    "react-custom-scrollbars": "^4.1.2"
+    "react-infinite": "^0.12.1"
   },
   "devDependencies": {
+    "material-ui": "^0.19.2",
     "nwb": "0.18.x",
     "react": "15.x || 16.x",
     "react-dom": "^16.0.0",
-    "material-ui": "^0.19.2",
-    "react-infinite": "^0.12.1",
-    "react-virtualized": "^9.10.1",
-    "react-custom-scrollbars": "^4.1.2"
+    "react-infinite": "^0.12.1"
   },
   "author": "",
   "homepage": "",
