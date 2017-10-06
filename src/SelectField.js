@@ -237,7 +237,7 @@ class SelectField extends Component {
           key={++index}
           tabIndex={index}
           ref={ref => (this.menuItems[++index] = ref)}
-          onClick={this.handleMenuSelection({ value: value, label })}
+          onClick={this.handleMenuSelection({ value, label })}
           disableFocusRipple
           leftIcon={leftCheckbox}
           rightIcon={rightCheckbox}

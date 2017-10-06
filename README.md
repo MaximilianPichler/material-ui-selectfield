@@ -17,7 +17,7 @@ https://maximilianpichler.github.io/material-ui-selectfield/
 ## Installation
 `npm i -S material-ui-selectfield`  
 
-##Dependencies
+## Dependencies
 - react
 - material-ui
 - react-infinite
@@ -32,7 +32,7 @@ https://maximilianpichler.github.io/material-ui-selectfield/
 | errorText | string | | Include this property to show an error text. |
 | noMatchFound | string | 'No match found' | Placeholder text when the autocomplete filter fails. |
 | anchorOrigin | object | `{ vertical: 'top', horizontal: 'left' }` | Anchor position of the menu, accepted values: `top, bottom / left, right` |
-| checkPosition | string |  | Position of the checkmark in multiple mode. Accepted values: `'', left, right` |
+| checkPosition | string | '' | Position of the checkboxes in multiple mode. Accepted values: `'', left, right`. If the default value is selected, the checkboxes are not shown |
 | canAutoPosition | bool | true | If present, this property allows the inner Popover component to position the menu in such way options are not hidden by the screen edges. |
 | multiple | bool | false | Include this property to turn superSelectField into a multi-selection dropdown. Checkboxes will appear.|
 | open | bool | false | Include this property to make the dropdown stay always open.|
