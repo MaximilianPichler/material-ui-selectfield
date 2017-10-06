@@ -12,7 +12,7 @@ class App extends Component {
     let elements = []
     for (let i = 1; i <= count; i++) {
       elements.push(
-        <div key={i} value={`Option ${i}`}>Option {i}</div>
+        <div key={i} label={`Option ${i}`} value={i}>Option {i}</div>
       )
     }
     return elements

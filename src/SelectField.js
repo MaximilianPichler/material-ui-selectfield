@@ -220,13 +220,12 @@ class SelectField extends Component {
     */
     const menuItemBuilder = (nodes, child, index) => {
       const { selectedItems } = this.state
-      const { value: label } = child.props
-      const { key } = child
+      const { value, label } = child.props
 
-      if (!autocompleteFilter(this.state.searchText, label || key)) return nodes
+      if (!autocompleteFilter(this.state.searchText, label || value)) return nodes
       const isSelected = Array.isArray(selectedItems)
-      ? selectedItems.some(obj => areEqual(obj.value, key))
-      : selectedItems ? selectedItems.value === key : false
+      ? selectedItems.some(obj => areEqual(obj.value, value))
+      : selectedItems ? selectedItems.value === value : false
       const leftCheckbox = (multiple && checkPosition === 'left' && (isSelected ? checkedIcon : unCheckedIcon)) || null
       const rightCheckbox = (multiple && checkPosition === 'right' && (isSelected ? checkedIcon : unCheckedIcon)) || null
       if (multiple && checkPosition !== '') {
@@ -238,7 +237,7 @@ class SelectField extends Component {
           key={++index}
           tabIndex={index}
           ref={ref => (this.menuItems[++index] = ref)}
-          onClick={this.handleMenuSelection({ value: key, label })}
+          onClick={this.handleMenuSelection({ value: value, label })}
           disableFocusRipple
           leftIcon={leftCheckbox}
           rightIcon={rightCheckbox}

@@ -17,6 +17,10 @@ https://maximilianpichler.github.io/material-ui-selectfield/
 ## Installation
 `npm i -S material-ui-selectfield`  
 
+##Dependencies
+- react
+- material-ui
+- react-infinite
 
 ## Properties
 | Name             | Type          | Default    | Description |
