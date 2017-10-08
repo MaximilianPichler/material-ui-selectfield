@@ -65,6 +65,7 @@ class App extends Component {
             <SelectField
               name='autocomplete'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(1000)
@@ -95,6 +96,7 @@ class App extends Component {
             <SelectField
               multiple
               checkPosition='left'
+              onChange={(e, val) => {console.log(e, val);}}
               name='close_button'
               hintText='Multiple values'
               menuCloseButton={<FlatButton label='close' />}
@@ -112,6 +114,7 @@ class App extends Component {
               open
               name='always_open'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -126,6 +129,7 @@ class App extends Component {
               errorText='Error!'
               name='error_text'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -143,6 +147,7 @@ class App extends Component {
               underlineFocusStyle={{ borderColor: 'yellow' }}
               name='custom_styling'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(4)
@@ -157,6 +162,7 @@ class App extends Component {
               floatingLabel='Hello, I am the floating label'
               name='floating_label'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -171,6 +177,7 @@ class App extends Component {
               name='floating_label'
               hintText='Single value'
               elementHeight={46}
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getIconElements()
@@ -185,6 +192,7 @@ class App extends Component {
               disabled
               name='disabled'
               hintText='Single value'
+              onChange={(e, val) => {console.log(e, val);}}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)

@@ -2,7 +2,7 @@ sudo: false
 
 language: node_js
 node_js:
-  - 6
+  - 8
 
 before_install:
   - npm install codecov.io coveralls
@@ -12,6 +12,9 @@ after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - npm run build
   - nwb build-demo
+
+script:
+  - npm test -- --coverage && cat ./coverage/lcov.info | coveralls
 
 deploy:
   provider: pages
