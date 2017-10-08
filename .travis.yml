@@ -14,7 +14,7 @@ after_success:
   - nwb build-demo
 
 script:
-  - npm test
+  - npm test -- --coverage && cat ./coverage/lcov.info | coveralls
 
 deploy:
   provider: pages
