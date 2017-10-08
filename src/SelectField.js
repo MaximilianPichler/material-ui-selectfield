@@ -148,7 +148,7 @@ class SelectField extends Component {
       }
     } else {
       const updatedValue = areEqual(selectedItems, selectedItem) ? null : selectedItem
-      this.setState({ selectedItems: updatedValue }, () => onChange(this.state.selectedItems, name) && this.closeMenu())
+      this.setState({ selectedItems: updatedValue }, () => onChange(this.state.selectedItems, name) & this.closeMenu())
     }
   }
 
