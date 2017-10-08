@@ -13,6 +13,9 @@ after_success:
   - npm run build
   - nwb build-demo
 
+script:
+  - npm test
+
 deploy:
   provider: pages
   skip_cleanup: true

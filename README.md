@@ -2,6 +2,7 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
+[![Coveralls][coveralls-badge]][coveralls]
 
 [build-badge]: https://img.shields.io/travis/MaximilianPichler/material-ui-selectfield/master.png?style=flat-square
 [build]: https://travis-ci.org/MaximilianPichler/material-ui-selectfield.svg?branch=master
@@ -9,6 +10,8 @@
 [npm-badge]: https://img.shields.io/npm/v/material-ui-selectfield.png?style=flat-square
 [npm]: https://www.npmjs.com/package/material-ui-selectfield
 
+[coveralls-badge]: https://img.shields.io/MaximilianPichler/material-ui-selectfield/master.png?style=flat-square
+[coveralls]: https://coveralls.io/github/MaximilianPichler/material-ui-selectfield
 
 ## Demo
 https://maximilianpichler.github.io/material-ui-selectfield/
