@@ -138,6 +138,7 @@ class SelectField extends Component {
   handleMenuSelection = (selectedItem) => (event) => {
     event.preventDefault()
     const { selectedItems } = this.state
+    const { onChange, name } = this.props
 
     if (this.props.multiple) {
       if (selectedItems == null) {
@@ -147,7 +148,7 @@ class SelectField extends Component {
       }
     } else {
       const updatedValue = areEqual(selectedItems, selectedItem) ? null : selectedItem
-      this.setState({ selectedItems: updatedValue }, () => this.closeMenu())
+      this.setState({ selectedItems: updatedValue }, () => onChange(this.state.selectedItems, name) && this.closeMenu())
     }
   }
 
