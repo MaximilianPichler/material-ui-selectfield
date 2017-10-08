@@ -53,9 +53,8 @@ class SelectField extends Component {
   }
 
   closeMenu = (reason) => {
-    const { onChange, name, open } = this.props
+    const { open } = this.props
 
-    onChange(this.state.selectedItems, name)
     this.setState({ isFocused: false, searchText: '' })
 
     if (open !== true) {
@@ -126,12 +125,13 @@ class SelectField extends Component {
 
   selectOrUnselectItem = (selectedItem) => {
     const { selectedItems } = this.state
+    const { onChange, name } = this.props
 
     const selectedItemExists = selectedItems.some(obj => areEqual(obj.value, selectedItem.value))
     const updatedValues = selectedItemExists
     ? selectedItems.filter(obj => !areEqual(obj.value, selectedItem.value))
     : selectedItems.concat(selectedItem)
-    this.setState({ selectedItems: updatedValues })
+    this.setState({ selectedItems: updatedValues }, () => onChange(this.state.selectedItems, name))
     this.clearTextField(() => this.focusTextField())
   }
 

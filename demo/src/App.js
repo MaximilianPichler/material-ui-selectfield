@@ -77,6 +77,7 @@ class App extends Component {
             <br />
             <SelectField
               multiple
+              onChange={(e, val) => {console.log(e, val);}}
               checkPosition='left'
               name='multiple_selections'
               hintText='Multiple values'
