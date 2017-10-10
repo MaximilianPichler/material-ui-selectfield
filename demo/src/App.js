@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       autocomplete: null,
       multiple_selections: null,
+      chip_selections: null,
       close_button: null,
       always_open: null,
       error_text: null,
@@ -58,12 +59,34 @@ class App extends Component {
     return elements
   }
 
+  handleCustomDisplaySelections = (name, hintText) => values => {
+    if (values != null && values.length) {
+      return (
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {
+            values.map(({ label, value }, index) => {
+              return <Chip key={index} style={{ margin: 5 }} onRequestDelete={() => this.deleteEntry(index, name)}>
+                {label}
+              </Chip>
+            })
+          }
+        </div>
+      )
+    } else {
+      return <div style={{color: '#b2b2b2'}}>{hintText}</div> //closest to hintText color
+    }
+  }
+
+  deleteEntry = (key, name) => {
+    this.setState({[name]: this.state[name].filter((v, i) => i !== key)})
+    this.refs[name].state.isFocused = false
+  }
+
   saveToState = (value, name) => {
     this.setState({[name]: value})
   }
 
   printState = (name) => {
-
     return <div>
       state:
       <pre style={{
@@ -93,8 +116,8 @@ class App extends Component {
           iconElementLeft={<div></div>}
           title={`material-ui-selectfield`}
         />
-
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
+
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <b>Autocomplete</b>
             <br />
@@ -106,7 +129,7 @@ class App extends Component {
               hintText='Single value'
               value={this.state.autocomplete}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(1000)
               }
@@ -126,13 +149,33 @@ class App extends Component {
               hintText='Multiple values'
               value={this.state.multiple_selections}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(4)
               }
             </SelectField>
           </Paper>
-
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
+            <b>Chip selection</b>
+            <br />
+            <br />
+            {this.printState('chip_selections')}
+            <br />
+            <SelectField
+              multiple
+              onChange={() => console.log("a")}
+              checkPosition='left'
+              name='chip_selections'
+              value={this.state.chip_selections}
+              onChange={this.saveToState}
+              selectionsRenderer={this.handleCustomDisplaySelections('chip_selections', 'Chip selection')}
+              ref='chip_selections'
+              style={{ width: 240 }}>
+              {
+                this.getElemets(4)
+              }
+            </SelectField>
+          </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <b>Multiple with close button</b>
@@ -148,7 +191,7 @@ class App extends Component {
               menuCloseButton={<FlatButton label='close' />}
               value={this.state.close_button}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(4)
               }
@@ -167,7 +210,7 @@ class App extends Component {
               hintText='Single value'
               value={this.state.always_open}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(3)
               }
@@ -186,7 +229,7 @@ class App extends Component {
               hintText='Single value'
               value={this.state.error_text}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(3)
               }
@@ -208,7 +251,7 @@ class App extends Component {
               hintText='Single value'
               value={this.state.custom_styling}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(4)
               }
@@ -226,7 +269,7 @@ class App extends Component {
               name='floating_label'
               value={this.state.floating_label}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(3)
               }
@@ -245,7 +288,7 @@ class App extends Component {
               elementHeight={46}
               value={this.state.icons}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getIconElements()
               }
@@ -264,12 +307,13 @@ class App extends Component {
               hintText='Single value'
               value={this.state.disabled}
               onChange={this.saveToState}
-              style={{ width: 200 }}>
+              style={{ width: 230 }}>
               {
                 this.getElemets(3)
               }
             </SelectField>
           </Paper>
+
         </div>
       </div>
     )
