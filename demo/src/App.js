@@ -96,11 +96,12 @@ class App extends Component {
 
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Autocomplete</p>
+            <b>Autocomplete</b>
+            <br />
+            <br />
             {this.printState('autocomplete')}
             <br />
             <SelectField
-              floatingLabel='ahc'
               name='autocomplete'
               hintText='Single value'
               value={this.state.autocomplete}
@@ -113,7 +114,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Multiple selections</p>
+            <b>Multiple selections</b>
+            <br />
+            <br />
             {this.printState('multiple_selections')}
             <br />
             <SelectField
@@ -132,7 +135,9 @@ class App extends Component {
 
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Multiple selection with close button</p>
+            <b>Multiple with close button</b>
+            <br />
+            <br />
             {this.printState('close_button')}
             <br />
             <SelectField
@@ -151,7 +156,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Always open</p>
+            <b>Always open</b>
+            <br />
+            <br />
             {this.printState('always_open')}
             <br />
             <SelectField
@@ -168,7 +175,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Error-text</p>
+            <b>Error-text</b>
+            <br />
+            <br />
             {this.printState('error_text')}
             <br />
             <SelectField
@@ -185,7 +194,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Custom styling</p>
+            <b>Custom styling</b>
+            <br />
+            <br />
             {this.printState('custom_styling')}
             <br />
             <SelectField
@@ -205,11 +216,13 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Floating label</p>
+            <b>Floating label</b>
+            <br />
+            <br />
             {this.printState('floating_label')}
             <br />
             <SelectField
-              floatingLabel='Hello!'
+              floatingLabel='Floating Label!'
               name='floating_label'
               hintText='Single value'
               value={this.state.floating_label}
@@ -222,7 +235,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Icons</p>
+            <b>Icons</b>
+            <br />
+            <br />
             {this.printState('icons')}
             <br />
             <SelectField
@@ -239,7 +254,9 @@ class App extends Component {
           </Paper>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <p>Disabled</p>
+            <b>Disabled</b>
+            <br />
+            <br />
             {this.printState('disabled')}
             <br />
             <SelectField
