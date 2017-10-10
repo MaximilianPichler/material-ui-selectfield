@@ -5,8 +5,23 @@ import Paper from 'material-ui/Paper'
 import SelectField from '../../src'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import FontIcon from 'material-ui/FontIcon'
+import Chip from 'material-ui/Chip/Chip'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      autocomplete: null,
+      multiple_selections: null,
+      close_button: null,
+      always_open: null,
+      error_text: null,
+      custom_styling: null,
+      floating_label: null,
+      floating_label: null,
+      disabled: null,
+    }
+  }
 
   getElemets (count) {
     let elements = []
@@ -43,6 +58,28 @@ class App extends Component {
     return elements
   }
 
+  saveToState = (value, name) => {
+    this.setState({[name]: value})
+  }
+
+  printState = (name) => {
+
+    return <div>
+      state:
+      <pre style={{
+        height: 100,
+        width: '90%',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        overflowY: 'auto',
+        margin: 0
+      }}
+      >
+        {JSON.stringify(this.state[name], null, 2)}
+      </pre>
+    </div>
+  }
+
   render() {
     const {
       setFilterIsOpen,
@@ -50,7 +87,6 @@ class App extends Component {
       setSearch,
       muiTheme
     } = this.props
-
     return (
       <div>
         <AppBar
@@ -59,12 +95,16 @@ class App extends Component {
         />
 
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Autocomplete</p>
+            {this.printState('autocomplete')}
             <br />
             <SelectField
+              floatingLabel='ahc'
               name='autocomplete'
               hintText='Single value'
+              value={this.state.autocomplete}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(1000)
@@ -72,15 +112,17 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Multiple selections</p>
+            {this.printState('multiple_selections')}
             <br />
             <SelectField
               multiple
-              onChange={(e, val) => {console.log(e, val);}}
               checkPosition='left'
               name='multiple_selections'
               hintText='Multiple values'
+              value={this.state.multiple_selections}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(4)
@@ -89,8 +131,9 @@ class App extends Component {
           </Paper>
 
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Multiple selection with close button</p>
+            {this.printState('close_button')}
             <br />
             <SelectField
               multiple
@@ -98,6 +141,8 @@ class App extends Component {
               name='close_button'
               hintText='Multiple values'
               menuCloseButton={<FlatButton label='close' />}
+              value={this.state.close_button}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(4)
@@ -105,13 +150,16 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Always open</p>
+            {this.printState('always_open')}
             <br />
             <SelectField
               open
               name='always_open'
               hintText='Single value'
+              value={this.state.always_open}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -119,13 +167,16 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Error-text</p>
+            {this.printState('error_text')}
             <br />
             <SelectField
               errorText='Error!'
               name='error_text'
               hintText='Single value'
+              value={this.state.error_text}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -133,8 +184,9 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Custom styling</p>
+            {this.printState('custom_styling')}
             <br />
             <SelectField
               menuStyle={{ backgroundColor: 'lightblue' }}
@@ -143,6 +195,8 @@ class App extends Component {
               underlineFocusStyle={{ borderColor: 'yellow' }}
               name='custom_styling'
               hintText='Single value'
+              value={this.state.custom_styling}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(4)
@@ -150,13 +204,16 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Floating label</p>
+            {this.printState('floating_label')}
             <br />
             <SelectField
-              floatingLabel='Hello, I am the floating label'
+              floatingLabel='Hello!'
               name='floating_label'
               hintText='Single value'
+              value={this.state.floating_label}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
@@ -164,13 +221,16 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Icons</p>
+            {this.printState('icons')}
             <br />
             <SelectField
-              name='floating_label'
+              name='icons'
               hintText='Single value'
               elementHeight={46}
+              value={this.state.icons}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getIconElements()
@@ -178,28 +238,26 @@ class App extends Component {
             </SelectField>
           </Paper>
 
-          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 400 }}>
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <p>Disabled</p>
+            {this.printState('disabled')}
             <br />
             <SelectField
               disabled
               name='disabled'
               hintText='Single value'
+              value={this.state.disabled}
+              onChange={this.saveToState}
               style={{ width: 200 }}>
               {
                 this.getElemets(3)
               }
             </SelectField>
           </Paper>
-
         </div>
-
-
-
       </div>
     )
   }
 }
-
 
 export default App

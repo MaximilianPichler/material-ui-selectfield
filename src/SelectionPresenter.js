@@ -51,10 +51,11 @@ const SelectionsPresenter = ({
   const focusCondition = isFocused || isOpen
   // Condition for shrinking the floating Label
   const shrinkCondition = (Array.isArray(selectedValues) && !!selectedValues.length) ||
-  (!Array.isArray(selectedValues) && typeof selectedValues === 'object') ||
+  (!Array.isArray(selectedValues) && typeof selectedValues === 'object' && selectedValues != null) ||
   focusCondition
 
   const errorStyle = {borderColor: 'rgb(244,67,54)', borderWidth: 2}
+  const disabledStyle = {borderBottom: '2px dotted'}
 
   const baseHRstyle = {
     position: 'absolute',
@@ -71,7 +72,7 @@ const SelectionsPresenter = ({
     ...underlineStyle
   }
 
-  const focusedHRstyle = disabled ? {} : (errorText ? errorStyle : {
+  const focusedHRstyle = disabled ? disabledStyle : (errorText ? errorStyle : {
     borderBottom: '2px solid',
     borderColor: (focusCondition) ? focusColor : borderColor,
     transition: '450ms cubic-bezier(0.23, 1, 0.32, 1)', // transitions.easeOut(),
@@ -90,19 +91,21 @@ const SelectionsPresenter = ({
               focusCondition={focusCondition}
               disabled={disabled}
               defaultColors={{floatingLabelColor, focusColor}}
-              floatingLabelStyle={floatingLabelStyle}
+              floatingLabelStyle={{...floatingLabelStyle, pointerEvents: 'none'}}
               floatingLabelFocusStyle={floatingLabelFocusStyle}>
               {floatingLabel}
             </FloatingLabel>
           }
           {
             (shrinkCondition || !floatingLabel) &&
-            selectionsRenderer(selectedValues, hintText)
+            selectionsRenderer(selectedValues, hintText, floatingLabelColor)
           }
         </div>
         <DropDownArrow style={{fill: borderColor}} />
-
-        <hr style={baseHRstyle} />
+        {
+          !(focusCondition || errorText || disabled) &&
+          <hr style={baseHRstyle} />
+        }
         <hr style={{ ...baseHRstyle, ...focusedHRstyle }} />
       </div>
       {
@@ -127,16 +130,17 @@ SelectionsPresenter.propTypes = {
 SelectionsPresenter.defaultProps = {
   hintText: 'Click me',
   value: null,
-  selectionsRenderer: (values, hintText) => {
-    if (!values) return hintText
+  selectionsRenderer: (values, hintText, hintColor) => {
+    const hintDiv = <div style={{color: hintColor}}>{hintText}</div>
+    if (!values) return hintDiv
     const { value, label } = values
     if (Array.isArray(values)) {
       return values.length
       ? values.map(({ value, label }) => label || value).join(', ')
-      : hintText
+      : hintDiv
     }
     else if (label || value) return label || value
-    else return hintText
+    else return hintDiv
   }
 }
 
