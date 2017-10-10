@@ -27,7 +27,7 @@ https://maximilianpichler.github.io/material-ui-selectfield/
 |:----             |:----          |:----       |:---- |
 | name | string | | Required to differentiate between multiple instances of superSelectField in same page. |
 | floatingLabel | string or node | | The content to use for the floating label element. |
-| hintText | string | 'Click me' | Placeholder text for the main selections display. |
+| hintText | string | | Placeholder text for the main selections display. |
 | hintTextAutocomplete | string | 'Search' | Placeholder text for the autocomplete. |
 | errorText | string | | Include this property to show an error text. |
 | noMatchFound | string | 'No match found' | Placeholder text when the autocomplete filter fails. |

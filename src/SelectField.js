@@ -521,7 +521,6 @@ SelectField.defaultProps = {
   multiple: false,
   disabled: false,
   nb2show: 5,
-  hintText: 'Click me',
   hintTextAutocomplete: 'Search',
   noMatchFound: 'No match found',
   showAutocompleteThreshold: 10,

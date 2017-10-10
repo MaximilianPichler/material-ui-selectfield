@@ -87,7 +87,7 @@ const SelectionsPresenter = ({
           {
             floatingLabel &&
             <FloatingLabel
-              shrink={shrinkCondition}
+              shrink={shrinkCondition || hintText}
               focusCondition={focusCondition}
               disabled={disabled}
               defaultColors={{floatingLabelColor, focusColor}}
@@ -97,7 +97,7 @@ const SelectionsPresenter = ({
             </FloatingLabel>
           }
           {
-            (shrinkCondition || !floatingLabel) &&
+            (shrinkCondition || !floatingLabel || hintText) &&
             selectionsRenderer(selectedValues, hintText, floatingLabelColor)
           }
         </div>
@@ -128,7 +128,6 @@ SelectionsPresenter.propTypes = {
 }
 
 SelectionsPresenter.defaultProps = {
-  hintText: 'Click me',
   value: null,
   selectionsRenderer: (values, hintText, hintColor) => {
     const hintDiv = <div style={{color: hintColor}}>{hintText}</div>

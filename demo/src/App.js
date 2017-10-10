@@ -224,7 +224,6 @@ class App extends Component {
             <SelectField
               floatingLabel='Floating Label!'
               name='floating_label'
-              hintText='Single value'
               value={this.state.floating_label}
               onChange={this.saveToState}
               style={{ width: 200 }}>
