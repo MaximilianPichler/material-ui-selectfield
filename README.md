@@ -10,6 +10,10 @@
 [npm]: https://www.npmjs.com/package/material-ui-selectfield
 
 
+This repository was originally a fork of: https://github.com/Sharlaan/material-ui-superselectfield
+Check it out and don't forget to star it ;)
+
+
 ## Demo
 https://maximilianpichler.github.io/material-ui-selectfield/
 
