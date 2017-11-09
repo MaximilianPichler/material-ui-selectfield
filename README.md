@@ -10,8 +10,9 @@
 [npm]: https://www.npmjs.com/package/material-ui-selectfield
 
 
-:no_entry: [DEPRECATED]
+###:no_entry: [DEPRECATED]
 THIS PROJECT IS DEPRICATED! PLEASE HEAD OVER TO https://github.com/Sharlaan/material-ui-superselectfield FOR UPDATES!
+
 
 
 This repository was originally a fork of: https://github.com/Sharlaan/material-ui-superselectfield
