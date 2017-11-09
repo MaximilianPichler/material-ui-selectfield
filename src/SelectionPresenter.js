@@ -86,19 +86,23 @@ const SelectionsPresenter = ({
         <div style={styles.div2}>
           {
             floatingLabel &&
-            <FloatingLabel
-              shrink={shrinkCondition || hintText}
-              focusCondition={focusCondition}
-              disabled={disabled}
-              defaultColors={{floatingLabelColor, focusColor}}
-              floatingLabelStyle={{...floatingLabelStyle, pointerEvents: 'none'}}
-              floatingLabelFocusStyle={floatingLabelFocusStyle}>
-              {floatingLabel}
-            </FloatingLabel>
+            <div style={{marginBottom: 6}}>
+              <FloatingLabel
+                shrink={shrinkCondition || hintText}
+                focusCondition={focusCondition}
+                disabled={disabled}
+                defaultColors={{floatingLabelColor, focusColor}}
+                floatingLabelStyle={{...floatingLabelStyle, pointerEvents: 'none'}}
+                floatingLabelFocusStyle={floatingLabelFocusStyle}>
+                {floatingLabel}
+              </FloatingLabel>
+            </div>
           }
           {
             (shrinkCondition || !floatingLabel || hintText) &&
-            selectionsRenderer(selectedValues, hintText, floatingLabelColor)
+            <div style={{paddingBottom: 7}}>
+              {selectionsRenderer(selectedValues, hintText, floatingLabelColor)}
+            </div>
           }
         </div>
         <DropDownArrow style={{fill: borderColor}} />
@@ -110,7 +114,7 @@ const SelectionsPresenter = ({
       </div>
       {
         errorText &&
-        <div style={{paddingTop: 5, fontSize: 12, color: 'rgb(244,67,54)'}}>
+        <div style={{paddingTop: 6, fontSize: 12, color: 'rgb(244,67,54)'}}>
           {errorText}
         </div>
       }

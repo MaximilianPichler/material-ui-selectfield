@@ -6,6 +6,8 @@ import SelectField from '../../src'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import FontIcon from 'material-ui/FontIcon'
 import Chip from 'material-ui/Chip/Chip'
+import SelectField1 from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 class App extends Component {
   constructor() {
@@ -119,14 +121,10 @@ class App extends Component {
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
 
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
-            <b>Autocomplete</b>
-            <br />
-            <br />
-            {this.printState('autocomplete')}
-            <br />
+            aaaa
             <SelectField
               name='autocomplete'
-              hintText='Single value'
+              floatingLabel='Single value'
               value={this.state.autocomplete}
               onChange={this.saveToState}
               style={{ width: 230 }}>
@@ -134,8 +132,25 @@ class App extends Component {
                 this.getElemets(1000)
               }
             </SelectField>
+            aaaa
           </Paper>
 
+          <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
+            aaaa
+            <SelectField1
+              floatingLabelText="Frequency"
+              value={this.state.multiple_selections}
+              onChange={(e, newVar) => this.saveToState(newVar, 'multiple_selections')}
+            >
+              <MenuItem value={1} primaryText="Never" />
+              <MenuItem value={2} primaryText="Every Night" />
+              <MenuItem value={3} primaryText="Weeknights" />
+              <MenuItem value={4} primaryText="Weekends" />
+              <MenuItem value={5} primaryText="Weekly" />
+            </SelectField1>
+            aaaa
+          </Paper>
+{/*
           <Paper zDepth={3} style={{ padding: 25, margin: 5, width: 300, height: 450 }}>
             <b>Multiple selections</b>
             <br />
@@ -313,7 +328,7 @@ class App extends Component {
               }
             </SelectField>
           </Paper>
-
+*/}
         </div>
       </div>
     )

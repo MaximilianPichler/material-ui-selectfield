@@ -316,6 +316,8 @@ class SelectField extends Component {
         onClick={this.handleClick}
         title={!this.state.itemsLength ? 'Nothing to show' : ''}
         style={{
+          height: errorText? 67 : 41,
+          paddingTop: errorText ? 33 : 33,
           cursor: disabled ? 'not-allowed' : 'pointer',
           color: disabled ? palette.disabledColor : palette.textColor,
           ...style
